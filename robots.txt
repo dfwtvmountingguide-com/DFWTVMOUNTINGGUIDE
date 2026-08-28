@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dfwtvmountingguide-com.github.io/DFWTVMOUNTINGGUIDE/sitemap.xml

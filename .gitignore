@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+generators/_part*.json
+generators/content.py
