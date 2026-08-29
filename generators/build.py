@@ -41,6 +41,7 @@ LOGO_TMPL = ('<a class="logo" href="{P}index.html"><span class="logo-mark">'
 
 def head(title, desc, canonical_path, schema):
     P = depth_prefix(canonical_path)
+    img = BASE + "assets/images/og-image.png"
     return """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +53,12 @@ def head(title, desc, canonical_path, schema):
 <meta property="og:type" content="website">
 <meta property="og:title" content="%s">
 <meta property="og:description" content="%s">
+<meta property="og:image" content="%s">
+<meta property="og:url" content="%s%s">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="%s">
+<meta name="twitter:description" content="%s">
+<meta name="twitter:image" content="%s">
 %s
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +69,7 @@ def head(title, desc, canonical_path, schema):
 </script>
 </head>
 <body>
-""" % (title, desc, BASE, canonical_path, title, desc, FAVICON_TMPL.replace("{P}", P), P, json.dumps(schema))
+""" % (title, desc, BASE, canonical_path, title, desc, img, BASE, canonical_path, title, desc, img, FAVICON_TMPL.replace("{P}", P), P, json.dumps(schema))
 
 def header(path):
     P = depth_prefix(path)
