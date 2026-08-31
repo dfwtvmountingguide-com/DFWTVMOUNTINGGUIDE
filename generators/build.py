@@ -64,12 +64,14 @@ def head(title, desc, canonical_path, schema):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="%sassets/css/styles.css">
+<link rel="stylesheet" href="%sassets/css/motion.css">
+<script src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 <script type="application/ld+json">
 %s
 </script>
 </head>
 <body>
-""" % (title, desc, BASE, canonical_path, title, desc, img, BASE, canonical_path, title, desc, img, FAVICON_TMPL.replace("{P}", P), P, json.dumps(schema))
+""" % (title, desc, BASE, canonical_path, title, desc, img, BASE, canonical_path, title, desc, img, FAVICON_TMPL.replace("{P}", P), P, P, json.dumps(schema))
 
 def header(path):
     P = depth_prefix(path)
@@ -165,20 +167,20 @@ def guide_page(obj):
     P = depth_prefix(path)
     body = [head(obj["title"], obj["desc"], path, schema), header(path)]
     body.append(breadcrumbs(path, [("Home", "index.html"), (obj["crumb"] or obj["h1"], None)]))
-    body.append('<section class="hero"><div class="container"><p class="kicker">%s</p><h1>%s</h1><p class="lead">%s</p></div></section>' % (obj.get("kicker","DFW TV Mounting Guide"), obj["h1"], obj["intro"]))
+    body.append('<section class="hero motion-bg"><div class="bg-layer" aria-hidden="true"></div><div class="container" data-reveal><p class="kicker">%s</p><h1>%s</h1><p class="lead">%s</p></div></section>' % (obj.get("kicker","DFW TV Mounting Guide"), obj["h1"], obj["intro"]))
     body.append('<div class="section"><div class="container"><article class="article">')
     for sec in obj["sections"]:
         if isinstance(sec, (list, tuple)) and len(sec) == 2:
-            body.append('<h2>%s</h2>%s' % (sec[0], sec[1]))
+            body.append('<h2 data-reveal>%s</h2>%s' % (sec[0], sec[1]))
         else:
             body.append(str(sec))
     body.append('</article></div>')
-    body.append('<div class="container">' + cta_band() + '</div></div>')
+    body.append('<div class="container" data-reveal>' + cta_band() + '</div></div>')
     if obj.get("faq"):
-        body.append('<section class="section bg-soft"><div class="container"><div class="section-head"><p class="kicker">FAQ</p><h2 class="section-title">Common Questions</h2></div><div style="max-width:760px;margin:0 auto;">')
+        body.append('<section class="section bg-soft"><div class="container"><div class="section-head" data-reveal><p class="kicker">FAQ</p><h2 class="section-title">Common Questions</h2></div><div style="max-width:760px;margin:0 auto;" class="reveal-group">')
         for q, a in obj["faq"]:
-            body.append('<div class="faq-item"><button class="faq-q" aria-expanded="false">%s <span class="chev">▾</span></button><div class="faq-a"><p>%s</p></div></div>' % (q, a))
-        body.append('</div></div></section>')
+            body.append('<div class="faq-item" data-reveal><button class="faq-q" aria-expanded="false">%s <span class="chev">▾</span></button><div class="faq-a"><p>%s</p></div></div>' % (q, a))
+    body.append('</div></div></section>')
     body.append(footer(path))
     write_page(path, "\n".join(body))
 

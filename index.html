@@ -20,6 +20,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/motion.css">
+<script src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"DFW TV Mounting Guide","url":"https://dfwtvmountingguide-com.github.io/DFWTVMOUNTINGGUIDE/","description":"Helpful TV mounting information for Dallas-Fort Worth."}
 </script>
@@ -41,8 +43,10 @@
     </nav>
   </div>
 </header>
-<section class="hero">
-  <div class="container">
+<section class="hero motion-bg">
+  <div class="jitter-hero" data-jitter="assets/jitter/dfw-hero.mp4" aria-hidden="true"></div>
+  <div class="bg-layer" aria-hidden="true"></div>
+  <div class="container" data-reveal>
     <p class="kicker">DFW TV Mounting Guide</p>
     <h1>Professional TV Mounting Information for Dallas-Fort Worth</h1>
     <p class="tagline">Your local guide to TV mounting &amp; installation in Dallas-Fort Worth</p>
@@ -55,12 +59,12 @@
 </section>
 <section class="section" id="topics">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <p class="kicker">Popular Topics</p>
       <h2 class="section-title">Everything You Need to Know About TV Mounting</h2>
       <p>Practical, straightforward guidance from the DFW TV Mounting Guide — no fluff, no guesswork.</p>
     </div>
-    <div class="grid grid-3">
+    <div class="grid grid-3 reveal-group">
       <article class="card"><h3>TV Mounting Cost</h3><p>What affects the price of a TV installation in DFW — TV size, mount type, wall type and more.</p><a class="card-link" href="tv-mounting-cost.html">Read the cost guide →</a></article>
       <article class="card"><h3>TV Size Guides</h3><p>Height, weight and wall considerations for 65-inch, 75-inch and 85-inch televisions.</p><a class="card-link" href="tv-size-guides.html">Explore size guides →</a></article>
       <article class="card"><h3>TV Mount Types</h3><p>Fixed vs tilt vs full-motion mounts — pros, cons and which fits your space.</p><a class="card-link" href="tv-mount-types.html">Compare mount types →</a></article>
@@ -72,12 +76,12 @@
 </section>
 <section class="section bg-soft">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <p class="kicker">DFW Service Areas</p>
       <h2 class="section-title">Serving All of Dallas-Fort Worth</h2>
       <p>From Fort Worth to Dallas and everywhere in between, our guides cover residential and commercial TV mounting across North Texas.</p>
     </div>
-    <div class="grid grid-3">
+    <div class="grid grid-3 reveal-group">
       <a class="card" href="service-areas.html"><h3>Fort Worth</h3><p>TV mounting information for the western half of the metroplex.</p></a>
       <a class="card" href="service-areas.html"><h3>Dallas</h3><p>Residential and commercial TV mounting guidance across Dallas.</p></a>
       <a class="card" href="service-areas.html"><h3>Mid-Cities</h3><p>Arlington, Irving, Euless, Bedford, Hurst, Grapevine and more.</p></a>
@@ -89,12 +93,12 @@
 </section>
 <section class="section">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <p class="kicker">Why It Matters</p>
       <h2 class="section-title">Why Professional Installation Matters</h2>
       <p>A safely mounted TV protects your equipment, your wall and your family. Here's what to consider.</p>
     </div>
-    <div class="grid grid-2">
+    <div class="grid grid-2 reveal-group">
       <article class="card"><h3>Safety &amp; Security</h3><p>A TV that isn't properly secured to wall studs can pull free and fall — a real safety risk. Professional installers pick the right hardware for the wall type and TV weight and secure the mount correctly.</p></article>
       <article class="card"><h3>Clean, Hidden Wiring</h3><p>Hanging wires can ruin an otherwise clean installation. Hidden cable routing creates the finished, "installed by a pro" look most people are after.</p></article>
       <article class="card"><h3>Correct Viewing Height</h3><p>Mounting at the wrong height is one of the most common regret points. Getting the height right — especially above a fireplace or in a bedroom — matters for comfort.</p></article>
@@ -104,8 +108,8 @@
 </section>
 <section class="section">
   <div class="container">
-    <div class="cta-band">
-      <h2>Have a TV Ready to Mount?</h2>
+    <div class="cta-band" data-reveal>
+          <h2>Have a TV Ready to Mount?</h2>
       <p>Get a professional installation quote from C&O TV Mounting, proudly serving the Dallas-Fort Worth area.</p>
       <a class="btn btn-gold" href="https://oandctvmounting-ai.github.io/co-tv-mounting-booking/" target="_blank" rel="noopener">Book Your Installation</a>
       <p class="cta-note">DFW TV Mounting Guide is an informational resource. Professional installation services are provided by C&O TV Mounting.</p>
@@ -114,13 +118,13 @@
 </section>
 <section class="section bg-soft">
   <div class="container">
-    <div class="section-head"><p class="kicker">FAQ</p><h2 class="section-title">Common Questions</h2></div>
-    <div style="max-width:760px;margin:0 auto;">
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">How much does TV mounting cost in DFW? <span class="chev">▾</span></button><div class="faq-a"><p>Costs vary by TV size, mount type, wall type and whether wire concealment is included. See our <a href="tv-mounting-cost.html">TV mounting cost guide</a> for the factors that influence price. For an exact quote, use our <a href="https://oandctvmounting-ai.github.io/co-tv-mounting-booking/" target="_blank" rel="noopener">Get a Quote</a> tool.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can you mount a TV on drywall? <span class="chev">▾</span></button><div class="faq-a"><p>Yes, when the mount is anchored into wall studs with the correct hardware. Simply relying on drywall anchors is not always appropriate, especially for larger TVs. <a href="tv-mounting-drywall.html">Learn more about drywall mounting</a>.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">What's the right viewing height for a TV? <span class="chev">▾</span></button><div class="faq-a"><p>A common starting point is to place roughly the center of the screen at eye level when you're seated — but the ideal height depends on room layout, seating and TV size. <a href="guides.html">Guidance here</a>.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Should you use a fixed, tilt or full-motion mount? <span class="chev">▾</span></button><div class="faq-a"><p>Fixed mounts are the cleanest and lowest-profile. Tilt mounts help with higher placement. Full-motion mounts let you angle or extend the TV. <a href="tv-mount-types.html">Compare the three types</a>.</p></div></div>
-    </div>
+    <div class="section-head" data-reveal><p class="kicker">FAQ</p><h2 class="section-title">Common Questions</h2></div>
+        <div style="max-width:760px;margin:0 auto;" class="reveal-group">
+          <div class="faq-item" data-reveal><button class="faq-q" aria-expanded="false">How much does TV mounting cost in DFW? <span class="chev">▾</span></button><div class="faq-a"><p>Costs vary by TV size, mount type, wall type and whether wire concealment is included. See our <a href="tv-mounting-cost.html">TV mounting cost guide</a> for the factors that influence price. For an exact quote, use our <a href="https://oandctvmounting-ai.github.io/co-tv-mounting-booking/" target="_blank" rel="noopener">Get a Quote</a> tool.</p></div></div>
+          <div class="faq-item" data-reveal><button class="faq-q" aria-expanded="false">Can you mount a TV on drywall? <span class="chev">▾</span></button><div class="faq-a"><p>Yes, when the mount is anchored into wall studs with the correct hardware. Simply relying on drywall anchors is not always appropriate, especially for larger TVs. <a href="tv-mounting-drywall.html">Learn more about drywall mounting</a>.</p></div></div>
+          <div class="faq-item" data-reveal><button class="faq-q" aria-expanded="false">What's the right viewing height for a TV? <span class="chev">▾</span></button><div class="faq-a"><p>A common starting point is to place roughly the center of the screen at eye level when you're seated — but the ideal height depends on room layout, seating and TV size. <a href="guides.html">Guidance here</a>.</p></div></div>
+          <div class="faq-item" data-reveal><button class="faq-q" aria-expanded="false">Should you use a fixed, tilt or full-motion mount? <span class="chev">▾</span></button><div class="faq-a"><p>Fixed mounts are the cleanest and lowest-profile. Tilt mounts help with higher placement. Full-motion mounts let you angle or extend the TV. <a href="tv-mount-types.html">Compare the three types</a>.</p></div></div>
+        </div>
   </div>
 </section>
 <div class="mobile-cta"><a class="btn btn-royal" href="https://oandctvmounting-ai.github.io/co-tv-mounting-booking/" target="_blank" rel="noopener">Get a Quote</a></div>
