@@ -102,4 +102,52 @@
       }
     }
   });
+// ---- Scroll progress bar ----
+  var progBar = document.querySelector(".scroll-progress .bar");
+  if (progBar) {
+    function onScroll() {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+      progBar.style.width = pct + "%";
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+  }
+
+  // ---- Marquee: duplicate content so it scrolls seamlessly ----
+  document.querySelectorAll(".marquee .track").forEach(function (track) {
+    track.innerHTML = track.innerHTML + track.innerHTML;
+  });
+
+  // ---- Count-up stats on scroll into view ----
+  function animateCount(el) {
+    var target = parseFloat(el.getAttribute("data-count"));
+    if (isNaN(target)) return;
+    var dur = 1600, start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var prog = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - prog, 3); // ease-out cubic
+      var val = Math.round(target * eased);
+      el.textContent = val.toLocaleString() + (el.getAttribute("data-suffix") || "");
+      if (prog < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString() + (el.getAttribute("data-suffix") || "");
+    }
+    requestAnimationFrame(step);
+  }
+  var countEls = document.querySelectorAll("[data-count]");
+  if (countEls.length && "IntersectionObserver" in window) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { animateCount(e.target); cio.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    countEls.forEach(function (el) { cio.observe(el); });
+  } else {
+    countEls.forEach(function (el) {
+      el.textContent = parseFloat(el.getAttribute("data-count")).toLocaleString() + (el.getAttribute("data-suffix") || "");
+    });
+  }
 })();

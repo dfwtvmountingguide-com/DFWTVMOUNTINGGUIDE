@@ -71,6 +71,7 @@ def head(title, desc, canonical_path, schema):
 </script>
 </head>
 <body>
+<div class="scroll-progress"><span class="bar"></span></div>
 """ % (title, desc, BASE, canonical_path, title, desc, img, BASE, canonical_path, title, desc, img, FAVICON_TMPL.replace("{P}", P), P, P, json.dumps(schema))
 
 def header(path):
@@ -110,7 +111,8 @@ def cta_band():
 
 def footer(path):
     P = depth_prefix(path)
-    return """<div class="mobile-cta">
+    return """<div class="marquee" aria-hidden="true"><div class="track"><span>TV Mounting Dallas</span><span>TV Mounting Fort Worth</span><span>Professional TV Installation</span><span>Wire Concealment</span><span>Home Theater Setup</span><span>Fixed &amp; Full-Motion Mounts</span></div></div>
+<div class="mobile-cta">
   <a class="btn btn-royal" href="{BOOK}" target="_blank" rel="noopener">Get a Quote</a>
 </div>
 <footer class="site-footer">

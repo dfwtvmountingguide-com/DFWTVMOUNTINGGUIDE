@@ -108,3 +108,54 @@
   [data-reveal], .reveal-group > * { opacity: 1 !important; transform: none !important; transition: none !important; }
   .bg-layer, .motion-dots i, .motion-icon, .motion-icon .ring, .motion-line { animation: none !important; }
 }
+
+/* ============================================================
+   SCROLL-TRIGGERED MOTION (clearly visible while scrolling)
+   ============================================================ */
+
+/* ---- Gold scroll progress bar (top of page) ---- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 70;
+  background: transparent; pointer-events: none;
+}
+.scroll-progress .bar {
+  display: block; height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  box-shadow: 0 0 8px rgba(212,175,55,0.55);
+  transition: width 80ms linear;
+}
+
+/* ---- Keyword marquee (infinite horizontal scroll) ---- */
+.marquee { overflow: hidden; position: relative; background: var(--royal-dark); padding: 14px 0; }
+.marquee .track {
+  display: flex; width: max-content; gap: 0;
+  animation: marquee 28s linear infinite; white-space: nowrap;
+}
+.marquee .track span {
+  font-weight: 700; font-size: 0.95rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--white); padding: 0 14px; display: inline-flex; align-items: center;
+}
+.marquee .track span::after { content: "✦"; color: var(--gold); margin-left: 28px; font-size: 0.7rem; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee.fast .track { animation-duration: 14s; }
+
+/* ---- Count-up stat numbers ---- */
+.stat b {
+  font-size: 2.1rem; font-weight: 800; color: var(--royal); display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+.stat.gold b { color: var(--gold); }
+.stat small { display: block; color: var(--ink-soft); font-size: 0.9rem; margin-top: 2px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; text-align: center; }
+@media (max-width: 900px) { .stats { grid-template-columns: repeat(2, 1fr); gap: 24px 20px; } }
+
+/* ---- Parallax float on hero decoration ---- */
+.parallax { animation: parallaxFloat 10s ease-in-out infinite alternate; }
+@keyframes parallaxFloat {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-22px); }
+}
+
+/* ---- Horizontal scroll-hint on cards (subtle but moving) ---- */
+.card { transition: transform var(--trans), box-shadow var(--trans), border-color var(--trans); }
+.grid-3 .card:hover { transform: translateY(-6px); border-color: rgba(212,175,55,0.5); }
