@@ -43,6 +43,14 @@
 
   // ---- Scroll reveal ----
   var revealEls = document.querySelectorAll("[data-reveal], .reveal-group");
+  function revealAll() {
+    revealEls.forEach(function (el) {
+      el.classList.add("revealed");
+      if (el.classList.contains("reveal-group")) {
+        el.classList.add("revealed");
+      }
+    });
+  }
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -53,8 +61,10 @@
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
     revealEls.forEach(function (el) { io.observe(el); });
+    // Safety net: if IO never fires (headless, edge cases), reveal all after 2s
+    setTimeout(revealAll, 2000);
   } else {
-    revealEls.forEach(function (el) { el.classList.add("revealed"); });
+    revealAll();
   }
 
   // ---- Jitter drop-in player ----
